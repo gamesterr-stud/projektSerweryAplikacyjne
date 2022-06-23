@@ -1,0 +1,18 @@
+<h1>Pracownicy</h1>
+<%=link_to'Dodaj pracownika', new_employee_path %>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Imię</th>
+    <th>Nazwisko</th>
+  </tr>
+  <% @employees.each do |employee| %>
+  <tr>
+    <td><%= employee.id%></td>
+    <td><%=link_to employee.firstName, employee_path(employee)%></td>
+    <td><%= employee.lastName%></td>
+    <td><%=link_to'Edytuj pracownika', edit_employee_path(employee) %></td>
+    <td><%=link_to'Usuń', employee_path(employee), action: :destroy %></td>
+  </tr>
+  <% end %>
+</table>
