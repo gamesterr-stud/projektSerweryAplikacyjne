@@ -45,10 +45,9 @@ class EmployeesController < ApplicationController
       flash[:alert] = 'Coś poszło nie tak'
     end
     redirect_to employees_path
-end
+  end
 
   def employee_params
     params.require(:employee).permit(:firstName, :lastName)
   end
 end
-

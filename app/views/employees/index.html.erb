@@ -16,7 +16,7 @@
     <td><%= employee.id%></td>
     <td><%=link_to employee.firstName, employee_path(employee)%></td>
     <td><%= employee.lastName%></td>
-    <td><%=link_to'Edytuj', edit_employee_path(employee), class: "btn btn-secondary", class: "button-xsmall pure-button" %>
+    <td><%=link_to'Edytuj', edit_employee_path(employee), class: "button-xsmall pure-button" %>
       <%=button_to'Usuń', employee_path(employee), method: :delete , class: "button-xsmall pure-button"%></td>
   </tr>
   <% end %>
