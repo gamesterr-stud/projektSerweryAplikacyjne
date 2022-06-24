@@ -1,18 +1,23 @@
+<link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+
 <h1>Pracownicy</h1>
-<%=link_to'Dodaj pracownika', new_employee_path %>
-<table>
+<%=link_to'Dodaj pracownika', new_employee_path , class: "button-xsmall pure-button"%>
+<table class="pure-table pure-table-bordered">
+  <thead>
   <tr>
     <th>ID</th>
     <th>Imię</th>
     <th>Nazwisko</th>
+    <th>Akcje</th>
   </tr>
+  </thead>
   <% @employees.each do |employee| %>
   <tr>
     <td><%= employee.id%></td>
     <td><%=link_to employee.firstName, employee_path(employee)%></td>
     <td><%= employee.lastName%></td>
-    <td><%=link_to'Edytuj pracownika', edit_employee_path(employee) %></td>
-    <td><%=link_to'Usuń', employee_path(employee), action: :destroy %></td>
+    <td><%=link_to'Edytuj', edit_employee_path(employee), class: "btn btn-secondary", class: "button-xsmall pure-button" %>
+      <%=button_to'Usuń', employee_path(employee), method: :delete , class: "button-xsmall pure-button"%></td>
   </tr>
   <% end %>
 </table>

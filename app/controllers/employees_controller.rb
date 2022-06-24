@@ -10,8 +10,10 @@ class EmployeesController < ApplicationController
   def create
     @employee = Employee.new(employee_params)
     if @employee.save
+      flash[:notice] = 'Pracownik został utworzony'
       redirect_to employees_path
     else
+      flash[:alert] = 'Coś poszło nie tak'
       render :new
     end
   end
@@ -23,8 +25,10 @@ class EmployeesController < ApplicationController
   def update
     @employee = Employee.find(params[:id])
     if @employee.update(employee_params)
+      flash[:notice] = 'Pracownik został zaktualizowany'
       redirect_to employees_path
     else
+      flash[:alert] = 'Coś poszło nie tak'
       render :edit
     end
   end
@@ -36,13 +40,13 @@ class EmployeesController < ApplicationController
   def destroy
     @employee = Employee.find(params[:id])
     if @employee.destroy
-      redirect_to employees_path
+      flash[:notice] = 'Pracownik został usunięty'
     else
-      redirect_to employees_path
+      flash[:alert] = 'Coś poszło nie tak'
     end
-  end
+    redirect_to employees_path
+end
 
-  private
   def employee_params
     params.require(:employee).permit(:firstName, :lastName)
   end

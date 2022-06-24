@@ -1,5 +1,9 @@
-<%=form_with model: @employee do |form| %>
+<link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+
+<h1>Edytuj pracownika</h1>
+<%= link_to 'Powrót', :back , class: "button-xsmall pure-button"%>
+<%=form_with model: @employee, class: "pure-form pure-form-aligned" do |form| %>
   <%=form.text_field :firstName %>
   <%=form.text_field :lastName %>
-  <%=form.submit %>
+  <%=form.submit%>
 <% end %>
